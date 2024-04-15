@@ -1,0 +1,95 @@
+{
+    "name": "terrys-snap-save",
+    "displayName": "Terry's Snap Save",
+    "description": "An easy way to add save states to your files",
+    "version": "0.0.1",
+    "icon": "resources/terrys-snap-save.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MaruTerry/terrys-snap-save"
+    },
+    "pricing": "Free",
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "publisher": "terrys-tools",
+    "author": {
+        "name": "MaruTerry"
+    },
+    "engines": {
+        "vscode": "^1.88.0"
+    },
+    "keywords": [
+        "save",
+        "state",
+        "savestate",
+        "tag",
+        "checkpoint"
+    ],
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "terrys-snap-save.saveState",
+                "title": "Save State (Terry's Snap Save)",
+                "icon": "resources/terrys-snap-save.svg"
+            },
+            {
+                "command": "terrys-snap-save.loadState",
+                "title": "Load State (Terry's Snap Save)"
+            }
+        ],
+        "menus": {
+            "editor/title/run": [
+                {
+                    "command": "terrys-snap-save.saveState",
+                    "group": "terrys-snap-save"
+                },
+                {
+                    "command": "terrys-snap-save.loadState",
+                    "group": "terrys-snap-save"
+                }
+            ]
+        },
+        "keybindings": [
+            {
+                "command": "terrys-snap-save.saveState",
+                "key": "ctrl+shift+alt+s"
+            }
+        ],
+        "configuration": {
+            "title": "terrys-snap-save",
+            "properties": {
+                "terrys-snap-save.saveStates": {
+                    "type": "array",
+                    "default": [],
+                    "items": {
+                        "type": "object"
+                    },
+                    "description": "All save states handled by Terry's Snap Save"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.88.0",
+        "@types/mocha": "^10.0.6",
+        "@types/node": "18.x",
+        "@typescript-eslint/eslint-plugin": "^7.4.0",
+        "@typescript-eslint/parser": "^7.4.0",
+        "eslint": "^8.57.0",
+        "typescript": "^5.3.3",
+        "@vscode/test-cli": "^0.0.8",
+        "@vscode/test-electron": "^2.3.9"
+    }
+}
