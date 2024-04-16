@@ -9,7 +9,7 @@ export function isWorkspaceOpened(): boolean {
     const workspaceFolders = vscode.workspace.workspaceFolders;
     const workspaceOpened = workspaceFolders !== undefined && workspaceFolders.length > 0;
     if (!workspaceOpened) {
-        vscode.window.showWarningMessage("You must have an open workspace to be able to use Terry's Snap Save");
+        vscode.window.showWarningMessage("You must have an open workspace to be able to use Terry's Save States");
     }
     return workspaceOpened;
 }

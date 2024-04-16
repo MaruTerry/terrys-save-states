@@ -1,7 +1,7 @@
 # Change Log
 
-All notable changes to the "terrys-snap-save" extension will be documented in this file.
+All notable changes to the "terrys-save-states" extension will be documented in this file.
 
-## [Unreleased]
+## [1.0.0]
 
 -   Initial release

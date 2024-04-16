@@ -1,12 +1,12 @@
 {
-    "name": "terrys-snap-save",
-    "displayName": "Terry's Snap Save",
+    "name": "terrys-save-states",
+    "displayName": "Terry's Save States",
     "description": "An easy way to add save states to your files",
-    "version": "0.0.1",
-    "icon": "resources/terrys-snap-save.png",
+    "version": "1.0.0",
+    "icon": "resources/terrys-save-states.png",
     "repository": {
         "type": "git",
-        "url": "https://github.com/MaruTerry/terrys-snap-save"
+        "url": "https://github.com/MaruTerry/terrys-save-states"
     },
     "pricing": "Free",
     "license": "SEE LICENSE IN LICENSE.txt",
@@ -32,43 +32,141 @@
     "contributes": {
         "commands": [
             {
-                "command": "terrys-snap-save.saveState",
-                "title": "Save State (Terry's Snap Save)",
-                "icon": "resources/terrys-snap-save.svg"
+                "command": "terrys-save-states.saveState",
+                "title": "Save State",
+                "icon": {
+                    "light": "resources/light/save.svg",
+                    "dark": "resources/dark/save.svg"
+                }
             },
             {
-                "command": "terrys-snap-save.loadState",
-                "title": "Load State (Terry's Snap Save)"
+                "command": "terrys-save-states.chooseStateToLoad",
+                "title": "Load State",
+                "icon": {
+                    "light": "resources/light/discard.svg",
+                    "dark": "resources/dark/discard.svg"
+                }
+            },
+            {
+                "command": "terrys-save-states.loadState",
+                "title": "Load State",
+                "icon": {
+                    "light": "resources/light/discard.svg",
+                    "dark": "resources/dark/discard.svg"
+                }
+            },
+            {
+                "command": "terrys-save-states.clearStates",
+                "title": "Clear States",
+                "icon": {
+                    "light": "resources/light/clear-all.svg",
+                    "dark": "resources/dark/clear-all.svg"
+                }
+            },
+            {
+                "command": "terrys-save-states.clearStatesFromTreeView",
+                "title": "Clear States",
+                "icon": {
+                    "light": "resources/light/clear-all.svg",
+                    "dark": "resources/dark/clear-all.svg"
+                }
+            },
+            {
+                "command": "terrys-save-states.editDescription",
+                "title": "Edit Description"
+            },
+            {
+                "command": "terrys-save-states.deleteSaveState",
+                "title": "Delete"
             }
         ],
         "menus": {
             "editor/title/run": [
                 {
-                    "command": "terrys-snap-save.saveState",
-                    "group": "terrys-snap-save"
+                    "command": "terrys-save-states.saveState",
+                    "group": "terrys-save-states"
                 },
                 {
-                    "command": "terrys-snap-save.loadState",
-                    "group": "terrys-snap-save"
+                    "command": "terrys-save-states.chooseStateToLoad",
+                    "group": "terrys-save-states"
+                }
+            ],
+            "view/title": [
+                {
+                    "command": "terrys-save-states.saveState",
+                    "when": "view == opened-save-states-tree",
+                    "group": "navigation"
+                },
+                {
+                    "command": "terrys-save-states.clearStates",
+                    "when": "view == opened-save-states-tree",
+                    "group": "navigation"
+                }
+            ],
+            "view/item/context": [
+                {
+                    "command": "terrys-save-states.loadState",
+                    "when": "view == opened-save-states-tree && viewItem == saveState",
+                    "group": "inline"
+                },
+                {
+                    "command": "terrys-save-states.clearStatesFromTreeView",
+                    "when": "view == save-states-tree && viewItem == file",
+                    "group": "inline"
+                },
+                {
+                    "command": "terrys-save-states.editDescription",
+                    "when": "viewItem == saveState"
+                },
+                {
+                    "command": "terrys-save-states.deleteSaveState",
+                    "when": "viewItem == saveState"
+                }
+            ]
+        },
+        "viewsContainers": {
+            "panel": [
+                {
+                    "id": "save-states-tree",
+                    "title": "Save States",
+                    "icon": "resources/light/save.svg"
+                }
+            ]
+        },
+        "views": {
+            "save-states-tree": [
+                {
+                    "id": "opened-save-states-tree",
+                    "name": "Save States for Opened File",
+                    "type": "tree"
+                },
+                {
+                    "id": "save-states-tree",
+                    "name": "All Save States",
+                    "type": "tree"
                 }
             ]
         },
         "keybindings": [
             {
-                "command": "terrys-snap-save.saveState",
+                "command": "terrys-save-states.saveState",
                 "key": "ctrl+shift+alt+s"
+            },
+            {
+                "command": "terrys-save-states.chooseStateToLoad",
+                "key": "ctrl+shift+alt+l"
             }
         ],
         "configuration": {
-            "title": "terrys-snap-save",
+            "title": "terrys-save-states",
             "properties": {
-                "terrys-snap-save.saveStates": {
+                "terrys-save-states.saveStates": {
                     "type": "array",
                     "default": [],
                     "items": {
                         "type": "object"
                     },
-                    "description": "All save states handled by Terry's Snap Save"
+                    "description": "All save states handled by Terry's Save States"
                 }
             }
         }

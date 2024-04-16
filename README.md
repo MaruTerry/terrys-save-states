@@ -1,9 +1,11 @@
-# Terry's Snap Save README
+# Terry's Save States README
 
-Terry's Snap Save adds save states to your files. \
+Terry's Save States adds save states to your files 💾. \
 Easily set a checkpoint to revert a file to the saved state if needed.
 
 To learn more about Terry's Tools [visit my marketplace page](https://marketplace.visualstudio.com/publishers/terrys-tools).
+
+[Save icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/save)
 
 ## Features ✨
 
@@ -11,11 +13,13 @@ To learn more about Terry's Tools [visit my marketplace page](https://marketplac
 
 -   Revert the file to the set save state
 
-## Configuration ⚙️
+-   Manage all save states in the bottom panel
 
-Terry's Snap Save provides the following settings to customize its behavior:
+###
 
--   ///
+![Extenion in Action](https://raw.githubusercontent.com/MaruTerry/terrys-snap-save/master/resources/panel-example.png)
+
+###
 
 \
 **Enjoy!** 👏

@@ -1,20 +1,20 @@
 import * as vscode from "vscode";
-import { FileSate } from "../interfaces/file";
+import { File } from "../interfaces/file";
 
 /**
- * GEts the current save states.
- * @returns An array of all save states.
+ * Gets the currently saved files.
+ * @returns An array of all saved files.
  */
-export async function getSaveStates(): Promise<FileSate | undefined> {
-    return await vscode.workspace.getConfiguration().get("terrys-snap-save.saveStates");
+export async function getSavedFiles(): Promise<File[]> {
+    return (await vscode.workspace.getConfiguration().get("terrys-save-states.saveStates")) || [];
 }
 
 /**
- * Updates all save states.
- * @param fileStates - The new save states.
+ * Updates all saved files.
+ * @param files - The new files to save.
  */
-export async function setSaveStates(fileStates: FileSate[]) {
+export async function setSavedFiles(files: File[]) {
     await vscode.workspace
         .getConfiguration()
-        .update("terrys-snap-save.saveStates", fileStates, vscode.ConfigurationTarget.Workspace);
+        .update("terrys-save-states.saveStates", files, vscode.ConfigurationTarget.Workspace);
 }
