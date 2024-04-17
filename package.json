@@ -2,7 +2,7 @@
     "name": "terrys-save-states",
     "displayName": "Terry's Save States",
     "description": "An easy way to add save states to your files",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "icon": "resources/terrys-save-states.png",
     "repository": {
         "type": "git",
@@ -84,11 +84,11 @@
             "editor/title/run": [
                 {
                     "command": "terrys-save-states.saveState",
-                    "group": "terrys-save-states"
+                    "group": "terrys-save-states@1"
                 },
                 {
                     "command": "terrys-save-states.chooseStateToLoad",
-                    "group": "terrys-save-states"
+                    "group": "terrys-save-states@2"
                 }
             ],
             "view/title": [
